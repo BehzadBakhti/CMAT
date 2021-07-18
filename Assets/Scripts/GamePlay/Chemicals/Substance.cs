@@ -1,16 +1,19 @@
-﻿using Creature;
+﻿using System;
+using Creature;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Chemicals
 {
 
-
-
+    [Serializable]
     public class Substance
     {
         public SubstanceType type;
+        public string nameTag;
+        public float amount;
         public List<SubstanceElement> elements;
+        public List<int> doses;
     }
 
 
@@ -30,18 +33,15 @@ namespace Chemicals
         Hardner,
         Roughner,
     }
-
+    [Serializable]
     public class SubstanceElement
     {
+        public string nameTag;
         public SubstanceEffect effect;
         public BodyPartEnum bodyPart;
         public int activity; // between -1 and 1
-        public float dose;
 
-        public float FinalEffect()
-        {
-            return activity * dose;
-        }
+
 
         public bool IsSameElement(SubstanceElement other)
         {
@@ -60,13 +60,10 @@ namespace Chemicals
         private List<Substance> _inputs;
         private Substance _compound;
 
-        public SubstanceMixer(List<Substance> inputs)
+
+        public Substance Mix(List<Substance> inputs)
         {
             _inputs = inputs;
-        }
-
-        public Substance Mix()
-        {
             _compound = new Substance();
             for (int i = 0; i < _inputs.Count; i++)
             {
@@ -85,13 +82,13 @@ namespace Chemicals
                     {
                         if (_compound.elements[i].IsSameElement(_compound.elements[j]))
                         {
-                            if (_compound.elements[i].dose > 0 && _compound.elements[j].dose > 0)
+                            if (_compound.doses[i]> 0 && _compound.doses[j]> 0)
                             {
-                                var eff = _compound.elements[i].FinalEffect() + _compound.elements[j].FinalEffect();
+                                var eff = _compound.elements[i].activity*_compound.doses[i] + _compound.elements[j].activity*_compound.doses[j];
 
-                                _compound.elements[i].dose = Mathf.Abs(eff);
+                                _compound.doses[i] = Mathf.Abs(eff);
                                 _compound.elements[i].activity = (int)Mathf.Sign(eff);
-                                _compound.elements[j].dose = 0;
+                                _compound.doses[j] = 0;
                             }
                         }
                     }
@@ -101,15 +98,14 @@ namespace Chemicals
             for (int i = 0; i < _compound.elements.Count; i++)
             {
 
-                if (_compound.elements[i].dose <= 0)
+                if (_compound.doses[i] <= 0)
                 {
                     _compound.elements.RemoveAt(i);
+                    _compound.doses.RemoveAt(i);
                 }
 
             }
             return _compound;
         }
     }
-
-
 }

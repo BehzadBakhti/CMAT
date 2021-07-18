@@ -10,6 +10,7 @@ namespace Creature
     {
         [SerializeField] private CreatureClass _creatureClass;
         [SerializeField] private float _age;
+
         [SerializeField] private int _mutationCount;
         [SerializeField] private List<BodyPart> bodyParts;
         public void ApplySubstance(Substance substance)
