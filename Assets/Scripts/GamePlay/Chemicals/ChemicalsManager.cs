@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MonstersDataManagement;
 
 namespace Chemicals
 {
@@ -27,8 +28,17 @@ namespace Chemicals
 
     }
 
+
+
+
+    public class ChemicalsData : BaseDataClass<ChemicalsDataModel>
+    {
+        
+    }
+
+
     [Serializable]
-    public class ChemicalsData
+    public class ChemicalsDataModel
     {
         public List<Substance> compounds;
     }

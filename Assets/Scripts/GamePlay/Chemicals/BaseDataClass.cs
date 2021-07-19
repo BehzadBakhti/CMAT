@@ -1,24 +1,34 @@
-﻿namespace MonstersDataManagement
+﻿using System;
+using System.Collections.Generic;
+using Inventory;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using UnityEngine;
+
+namespace MonstersDataManagement
 {
     public abstract class BaseDataClass<T> where T : new()
     {
-        public virtual void Save(T model)
+        private T _cachedValue;
+        public void Save(T model)
         {
 
+            PlayerPrefs.SetString(typeof(T).ToString(),JsonConvert.SerializeObject(model));
         }
 
-        public virtual T Load()
+        public T Load()
         {
+            if (_cachedValue != null)
+                return _cachedValue;
 
-            var model= new T();
+            _cachedValue = JsonConvert.DeserializeObject<T>(PlayerPrefs.GetString( typeof(T).ToString()));
 
-            return model;
+            return _cachedValue;
         }
 
     }
 
-    public class InventoryData : BaseDataClass<InventoryData>
-    {
 
-    }
+
+
 }

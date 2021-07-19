@@ -1,18 +1,10 @@
-﻿using System.Collections.Generic;
-using UiMenus;
+﻿using System;
+using System.Collections.Generic;
+using MonstersDataManagement;
 using UnityEngine;
 
 namespace Inventory
 {
-
-
-    public class InventoryManagerUi : BaseUiView
-    {
-
-    }
-    
-
-    
 
     public abstract class InventoryItem : MonoBehaviour
     {
@@ -35,17 +27,12 @@ namespace Inventory
 
     }
 
-    public class Weapon : FixedAsset
+    public abstract class Weapon : FixedAsset
     {
         private List<Ammo> _loadedAmmos;
     }
 
-    public class Tool : FixedAsset
-    {
-
-    }
-
-    public class Ammo : Consumable
+    public abstract class Tool : FixedAsset
     {
 
     }
