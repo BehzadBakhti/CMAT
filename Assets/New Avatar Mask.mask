@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Avatar Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: heap
+    m_Weight: 1
+  - m_Path: heap/arm_lb
+    m_Weight: 1
+  - m_Path: heap/arm_lb/arm.001
+    m_Weight: 1
+  - m_Path: heap/arm_lb/leg_lb
+    m_Weight: 1
+  - m_Path: heap/arm_lb/leg_lb/leg.001
+    m_Weight: 1
+  - m_Path: heap/arm_lb/leg_lb/leg_lb_end
+    m_Weight: 1
+  - m_Path: heap/arm_rb
+    m_Weight: 1
+  - m_Path: heap/arm_rb/arm.003
+    m_Weight: 1
+  - m_Path: heap/arm_rb/leg_rb
+    m_Weight: 1
+  - m_Path: heap/arm_rb/leg_rb/leg.003
+    m_Weight: 1
+  - m_Path: heap/arm_rb/leg_rb/leg_rb_end
+    m_Weight: 1
+  - m_Path: heap/belly
+    m_Weight: 1
+  - m_Path: heap/belly/belly 1
+    m_Weight: 1
+  - m_Path: heap/belly/chest4
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_lf
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_lf/arm
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_lf/leg_lf
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_lf/leg_lf/leg
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_lf/leg_lf/leg_lf_end
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_rf
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_rf/arm.002
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_rf/leg_rf
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_rf/leg_rf/leg.002
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/arm_rf/leg_rf/leg_rf_end
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/chest
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/neck
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/neck/head
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/neck/head4
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/neck/head4/face
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/neck/head4/face/face_end
+    m_Weight: 1
+  - m_Path: heap/belly/chest4/neck/head4/head.001
+    m_Weight: 1
+  - m_Path: heap/heap 1
+    m_Weight: 1
+  - m_Path: heap/tale
+    m_Weight: 1
+  - m_Path: heap/tale/tale_01
+    m_Weight: 1
+  - m_Path: heap/tale/tale_01/tale_01_end
+    m_Weight: 1

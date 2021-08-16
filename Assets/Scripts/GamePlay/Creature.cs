@@ -1,4 +1,6 @@
 using Chemicals;
+using MonstersDataManagement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,11 +10,18 @@ namespace Creature
 {
     public class Creature : MonoBehaviour
     {
-        [SerializeField] private CreatureClass _creatureClass;
+        [SerializeField] private CreatureType _creatureType;
         [SerializeField] private float _age;
 
         [SerializeField] private int _mutationCount;
         [SerializeField] private List<BodyPart> bodyParts;
+        private Skeletone skeletone;
+        [SerializeField] Bone Heap;
+
+        private void Start()
+        {
+            skeletone = new Skeletone(Heap);
+        }
         public void ApplySubstance(Substance substance)
         {
             for (int i = 0; i < bodyParts.Count; i++)
@@ -52,75 +61,10 @@ namespace Creature
             }
         }
     }
-    public abstract class BodyPart : MonoBehaviour
-    {
-        public BodyPartEnum BodyPartName;
-        [SerializeField] private float _length;
-        [SerializeField] private float _hardness;
-        [SerializeField] private float _roughness;
-        [SerializeField] private Creature _creature;
 
-        public virtual void SetLength(float length)
-        {
-            _length = length;
-        }
+   
 
-        public virtual void SetHardness(float hardness)
-        {
-            _hardness = hardness;
-        }
-
-        public virtual void ApplySubstance(SubstanceElement substance, float age, int mutationCount)
-        {
-            //ToDo: the effect of the substance is affected by the "substance.dose", "age"m and "MutationCount"
-
-            switch (substance.effect)
-            {
-                case SubstanceEffect.Colonizer:
-                    _creature.Colonize(this, substance.activity);
-                    break;
-                case SubstanceEffect.Expander:
-                    Expand(substance.activity);
-                    break;
-                case SubstanceEffect.Elongator:
-                    Elongate(substance.activity);
-                    break;
-                case SubstanceEffect.Hardner:
-                    break;
-                case SubstanceEffect.Roughner:
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void Expand(int activity)
-        {
-
-        }
-
-        private void Elongate(int activity)
-        {
-
-        }
-
-        private void Harden(int activity)
-        {
-
-        }
-
-        private void Roughen(int activity)
-        {
-
-        }
-    }
-
-
-    public class Hand : BodyPart
-    {
-       
-    }
-    public enum CreatureClass
+    public enum CreatureType
     {
         Reptile,
         Flyer,
@@ -128,19 +72,73 @@ namespace Creature
         Swimmer,
     }
 
-    public enum BodyPartEnum
+    [Serializable]
+    public class Skeletone : Tree<Bone>
     {
-        Head,
-        Eye,
-        Ear,
-        Nose,
-        Mouse,
-        Tooth,
-        Tongue,
-        Neck,
-        Spine,
-        Foot,
-        Wing,
-        Tail
+        Bone _root;
+        public Skeletone(Bone root) : base(root)
+        {
+            _root = root;
+
+            SetChilderen(Root);
+        }
+
+        private void SetChilderen(TreeNode<Bone> node)
+        {
+            var childeren = node.value.GetComponentsInChildren<Bone>();
+            if (childeren is null || childeren.Length < 1) return;
+            for (int i = 0; i < childeren.Length; i++)
+            {
+                if (childeren[i] == node.value) continue;
+                if (childeren[i].transform.parent != node.value.transform) continue;
+                var newNode = node.AddChild(childeren[i]);
+                Debug.Log(newNode.value.name);
+                SetChilderen(newNode);
+            }
+        }
+    }
+}
+
+namespace MonstersDataManagement
+{
+
+    public class Tree<T>
+    {
+        public TreeNode<T> Root;
+        public Tree(T root)
+        {
+            Root = new TreeNode<T>(root);
+        }
+        public void Depth()
+        {
+
+        }
+
+    }
+    [Serializable]
+    public class TreeNode<T>
+    {
+        public T value;
+        private TreeNode<T> Parent;
+        public List<TreeNode<T>> Children;
+
+        public TreeNode(T v)
+        {
+            value = v;
+            Parent = null;
+            Children = new List<TreeNode<T>>();
+        }
+        public void SetParent(TreeNode<T> p)
+        {
+            Parent = p;
+        }
+
+        public TreeNode<T> AddChild(T c)
+        {
+            var childe = new TreeNode<T>(c);
+            childe.SetParent(this);
+            Children.Add(childe);
+            return childe;
+        }
     }
 }
