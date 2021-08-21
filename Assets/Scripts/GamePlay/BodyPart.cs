@@ -1,4 +1,5 @@
 ﻿using Chemicals;
+using MonstersDataManagement;
 using UnityEngine;
 
 namespace Creature
@@ -10,6 +11,9 @@ namespace Creature
         [SerializeField] private float _hardness;
         [SerializeField] private float _roughness;
         [SerializeField] private Creature _creature;
+        [SerializeField] private Bone _partRootBone;
+
+        public Creature Creature { get => _creature; set => _creature = value; }
 
         public virtual void SetLength(float length)
         {
@@ -52,7 +56,7 @@ namespace Creature
 
         private void Elongate(int activity)
         {
-
+           _creature.Skeletone.Elongate(_partRootBone, activity);
         }
 
         private void Harden(int activity)

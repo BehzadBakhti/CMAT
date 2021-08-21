@@ -1878,6 +1878,7 @@ MonoBehaviour:
   _hardness: 0
   _roughness: 0
   _creature: {fileID: 0}
+  _partRootBone: {fileID: 0}
 --- !u!1001 &331048785660666381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1929,6 +1930,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 331048784462693691, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
+      propertyPath: _age
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 601642645742450808, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
       propertyPath: m_Name
       value: creature
@@ -1957,6 +1962,7 @@ MonoBehaviour:
   _hardness: 0
   _roughness: 0
   _creature: {fileID: 0}
+  _partRootBone: {fileID: 0}
 --- !u!1 &4301534161380387736 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4551452137148238229, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
@@ -1979,6 +1985,7 @@ MonoBehaviour:
   _hardness: 0
   _roughness: 0
   _creature: {fileID: 0}
+  _partRootBone: {fileID: 0}
 --- !u!1 &4366463791631896907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4035459130322056006, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
@@ -2001,6 +2008,7 @@ MonoBehaviour:
   _hardness: 0
   _roughness: 0
   _creature: {fileID: 0}
+  _partRootBone: {fileID: 0}
 --- !u!1 &7842935113775476053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7516416464755527512, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
@@ -2023,6 +2031,7 @@ MonoBehaviour:
   _hardness: 0
   _roughness: 0
   _creature: {fileID: 0}
+  _partRootBone: {fileID: 0}
 --- !u!1 &8309698203199858234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8631682365083419703, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
@@ -2045,3 +2054,4 @@ MonoBehaviour:
   _hardness: 0
   _roughness: 0
   _creature: {fileID: 0}
+  _partRootBone: {fileID: 0}
