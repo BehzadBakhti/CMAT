@@ -14,7 +14,10 @@ namespace Creature
         [SerializeField] private Bone _partRootBone;
 
         public Creature Creature { get => _creature; set => _creature = value; }
-
+        private void Start()
+        {
+            _partRootBone = GetComponent<Bone>();
+        }
         public virtual void SetLength(float length)
         {
             _length = length;
@@ -28,7 +31,7 @@ namespace Creature
         public virtual void ApplySubstance(SubstanceElement substance, float age, int mutationCount)
         {
             //ToDo: the effect of the substance is affected by the "substance.dose", "age"m and "MutationCount"
-
+            Debug.Log(substance.bodyPart.ToString() + substance.effect.ToString() + substance.activity);
             switch (substance.effect)
             {
                 case SubstanceEffect.Colonizer:
