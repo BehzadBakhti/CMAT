@@ -1897,6 +1897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: creature
       objectReference: {fileID: 0}
+    - target: {fileID: 601642645742450808, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8132308901417985163, guid: 7e8329959bfc1374bafc44a75f7efb36, type: 3}
       propertyPath: m_LocalScale.y
       value: 1

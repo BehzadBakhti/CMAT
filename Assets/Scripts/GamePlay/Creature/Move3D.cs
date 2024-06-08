@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Creafting
+namespace Crafting
 {
     using System;
     using UnityEngine;

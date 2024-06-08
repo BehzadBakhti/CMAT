@@ -85,7 +85,7 @@ namespace RuntimeGizmos
 
 		public Action onCheckForSelectedAxis;
 		public Action onDrawCustomGizmo;
-
+        public event Action<List<Transform>> TransformHandleReleased;
 		public Camera myCamera {get; private set;}
 
 		public bool isTransforming {get; private set;}
@@ -579,7 +579,8 @@ namespace RuntimeGizmos
 			SetTranslatingAxis(transformType, Axis.None);
 
 			SetPivotPoint();
-		}
+            TransformHandleReleased?.Invoke(targetRootsOrdered);
+        }
 
 		float CalculateSnapAmount(float snapValue, float currentAmount, out float remainder)
 		{

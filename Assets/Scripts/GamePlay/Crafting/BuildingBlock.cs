@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using GamePlay.General;
+using MonstersDataManagement;
 
-
-namespace Creafting
+namespace CraftingDep
 {
     public  class BuildingBlock : MonoBehaviour
     {
@@ -29,17 +30,10 @@ namespace Creafting
     {
         protected EdgeBoundingMaterial bounding;
         protected bool isAttached;
-        private void Awake()
-        {
-          
-        }
+ 
     }
 
-    public class CraftedObject
-    {
-        List<BuildingBlock> nodes;
-
-    }
+  
 
     public enum EdgeBoundingMaterial
     {
